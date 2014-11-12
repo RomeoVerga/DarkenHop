@@ -4,38 +4,16 @@ public class Pair {
 	private static Pair[][] valuesByCard = new Pair[Card.count][Card.count];
 	private static boolean[][] intersectsPair  = new boolean[count][count];
 	private static boolean[][] intersectsCard  = new boolean[count][Card.count];
-
-	public static Pair get(Card c1, Card c2) {
-		return valuesByCard[c1.ordinal][c2.ordinal];
-	}
-	
-	public static int getIndex(int i, int j) {
-		return valuesByCard[i][j].ordinal;
-	}
-	
 	public final int ordinal;
 	private final Card[] cards = new Card[2];
 
-
-	
-	public String toString() {
-		return cards[0].toString + cards[1].toString;
+	/*****************************************STATIC METHODS********************************/
+	static {
+		findValues();
+		findPairIntersections();
+		findCardIntersections();
 	}
 	
-	
-	
-	public Card[] getCards() {
-		return cards;
-	}
-	
-	public boolean intersects(Pair p) {
-		return intersectsPair[this.ordinal][p.ordinal];
-	}
-
-	public boolean intersects(Card c) {
-		return intersectsCard[this.ordinal][c.ordinal];
-	}
-
 	private static void findPairIntersections() {
 		for (Pair p1 : values) {
 			Card[] c1 = p1.cards;
@@ -64,18 +42,6 @@ public class Pair {
 			}
 		}
 	}
-	
-	private Pair(Card c1, Card c2, int ordinal) {
-		this.cards[0] = c1;
-		this.cards[1] = c2;
-		this.ordinal = ordinal;
-	}
-	
-	static {
-		findValues();
-		findPairIntersections();
-		findCardIntersections();
-	}
 
 	private static void findValues() {
 		Card[] cards = Card.values();
@@ -89,6 +55,42 @@ public class Pair {
 				k++;
 			}
 		}
+	}
+	
+	/**********************************************CONSTRUCTOR*******************************/
+	private Pair(Card c1, Card c2, int ordinal) {
+		this.cards[0] = c1;
+		this.cards[1] = c2;
+		this.ordinal = ordinal;
+	}
+	
+	public static Pair get(Card c1, Card c2) {
+		return valuesByCard[c1.ordinal][c2.ordinal];
+	}
+	
+	public static int getIndex(int i, int j) {
+		return valuesByCard[i][j].ordinal;
+	}
+	
+	public Card[] getCards() {
+		return cards;
+	}
+	
+	/*****************************************Intersects Methods****************************************/
+	public boolean intersects(Pair p) {
+		return intersectsPair[this.ordinal][p.ordinal];
+	}
+
+	public boolean intersects(Card c) {
+		return intersectsCard[this.ordinal][c.ordinal];
+	}
+	
+	public static boolean[][] getIntersectsCard() {
+		return intersectsCard;
+	}
+
+	public static boolean[][] getIntersectsPair() {
+		return intersectsPair;
 	}
 
 	public static Pair[] values() {
@@ -105,16 +107,9 @@ public class Pair {
 		Pair result = Pair.get(cards[0], cards[1]);
 		return result;
 	}
-
-	public static boolean[][] getIntersectsCard() {
-		return intersectsCard;
-	}
-
-	public static boolean[][] getIntersectsPair() {
-		return intersectsPair;
-	}
 	
-	
-
-
+	/*********************************************toString******************************************/
+	public String toString() {
+		return cards[0].toString + cards[1].toString;
+	}
 }
