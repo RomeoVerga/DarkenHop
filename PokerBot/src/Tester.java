@@ -1,3 +1,13 @@
+/* Tester Class
+ * 
+ * Run this class prior to running the program to ensure that the ranks file
+ * is in the correct directory and can be accessed.
+ * 
+ * Note: This class is not needed to run program, it is simply there to ensure
+ * that the program functions correctly.
+ * 
+ */
+
 public class Tester {
 	static SevenCardEvaluator evaluator = new SevenCardEvaluator();
 	
@@ -66,6 +76,5 @@ public class Tester {
 			System.out.println("Hand: " + name + " " + hand + " " + handString + " rank: " + rank);
 		}
 		System.out.println();
-	}
-	
+	}	
 }
