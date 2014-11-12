@@ -1,5 +1,3 @@
-
-
 public interface HandEvaluatorSpears {
-	public int evaluate(Card[] hand)throws RuntimeException;
+	public int evaluate(Card[] hand) throws RuntimeException;
 }
