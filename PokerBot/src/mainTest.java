@@ -4,7 +4,7 @@ public class mainTest {
 	{
 		for(int i = 0; i < 52; i++)
 		{
-			System.out.println(Card.get(Rank.Ace, Suit.Clubs));
+			System.out.println(i + "\t" + Card.get(i));
 		}
 		
 	}
