@@ -26,6 +26,6 @@ public class Evaluator {
 		else if(h.noCards() == 7)
 			eval7.evaluate(h.toCards());
 		else
-			System.out.println("Hand of incorrect size: Cards = " + h.noCards());
+			System.out.println("Hand of incorrect size. Hand must have 5, 6 or 7 Cards: Number of Cards = " + h.noCards());
 	}
 }
