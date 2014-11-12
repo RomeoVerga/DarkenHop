@@ -25,7 +25,7 @@ import java.awt.Robot;
 public class GameState {
 	public static void main(String [] args) throws AWTException {
 		
-		//AspectRatio Calculator Goes here (Maybe send Aspect Ratio object to each method?)
+		//AspectRatio Calculator Goes here (Maybe send aspect ratio object to each method?)
 		getHoleCards();
 		
 	}
