@@ -2167,8 +2167,4 @@ public class FiveCardEvaluator implements HandEvaluatorSpears {
 		FiveCardEvaluator.values = values;
 
 	};
-	
-
-
-
 }

@@ -33,6 +33,8 @@ public class GameState {
 		getFlop();
 		getTurn();
 		getRiver();
+		
+		System.out.println("End of Processing.");
 	}
 	
 	/****************************************Get Seats**************************************/
