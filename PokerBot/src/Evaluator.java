@@ -18,14 +18,16 @@ public class Evaluator {
 		eval6 = new SixCardEvaluator();
 		eval7 = new SevenCardEvaluator();
 	}
-	public static void Evaluate(Hand h){
+	public static int evaluate(Hand h){
 		if(h.noCards() == 5)
-			eval5.evaluate(h.toCards());
+			return eval5.evaluate(h.toCards());
 		else if(h.noCards() == 6)
-			eval6.evaluate(h.toCards());
+			return eval6.evaluate(h.toCards());
 		else if(h.noCards() == 7)
-			eval7.evaluate(h.toCards());
-		else
+			return eval7.evaluate(h.toCards());
+		else{
 			System.out.println("Hand of incorrect size. Hand must have 5, 6 or 7 Cards: Number of Cards = " + h.noCards());
+			return -1;
+		}
 	}
 }
