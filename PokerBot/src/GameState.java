@@ -1,7 +1,8 @@
 /* GameState Class
  * 
- * Created: November 11, 2014
+ * Created on: November 11, 2014
  * Last Modified: November 12, 2014
+ * Created By: Matthew Nemetchek
  * 
  * The Game State Class will collect all visual GUI data from the poker client including:
  * 
@@ -58,11 +59,13 @@ public class GameState {
 		
 		wait(x,y);
 		
-		//The Green value of the pixel's RGB is equal to the Card's Ordinal Value
+		//The Green component of the pixel's RGB is equal to the Card's Ordinal Value
 		cardOrdinals[0] = robot.getPixelColor(x, y).getGreen(); //Hole Card 1
 		cardOrdinals[1] = robot.getPixelColor(x + 105, y).getGreen(); //Hole Card 2
+		double hs = HoleCards.handStrength(HoleCards.index(cardOrdinals));
 		
 		System.out.println("Hole Cards: " + Card.get(cardOrdinals[0]) + "" + Card.get(cardOrdinals[1]));
+		System.out.println("Pre-Flop Hand Strength: " + hs);
 		hand.reset(cardOrdinals);
 	}
 	
@@ -76,7 +79,7 @@ public class GameState {
 		Robot robot = new Robot();
 		
 		wait(x,y);
-		//The Green value of the pixel's RGB is equal to the Card's Ordinal Value
+		//The Green component of the pixel's RGB is equal to the Card's Ordinal Value
 		hand.addCard(robot.getPixelColor(x, y).getGreen()); //Flop Card 1
 		hand.addCard(robot.getPixelColor(x + gap, y).getGreen()); //Flop Card 2
 		hand.addCard(robot.getPixelColor(x + (2*gap), y).getGreen()); //Flop Card 3
