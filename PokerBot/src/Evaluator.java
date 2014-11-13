@@ -18,6 +18,7 @@ public class Evaluator {
 		eval6 = new SixCardEvaluator();
 		eval7 = new SevenCardEvaluator();
 	}
+	
 	public static int evaluate(Hand h){
 		if(h.noCards() == 5)
 			return eval5.evaluate(h.toCards());
