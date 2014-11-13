@@ -16,7 +16,6 @@
  * - Develop Simple algorithm for figuring out how many seats are at the poker table (2, 6, 9 or 10)
  * - Either hard code button positions for each table size or create a txt. file that has all different button positions for different table sizes.
  * - Create a toString method that prints out the entire GameState of a table.
- * 
  */
 
 import java.awt.AWTException;
@@ -58,6 +57,7 @@ public class GameState {
 		int[] cardOrdinals = new int[2]; 
 		
 		wait(x,y);
+		
 		//The Green value of the pixel's RGB is equal to the Card's Ordinal Value
 		cardOrdinals[0] = robot.getPixelColor(x, y).getGreen(); //Hole Card 1
 		cardOrdinals[1] = robot.getPixelColor(x + 105, y).getGreen(); //Hole Card 2
@@ -117,10 +117,28 @@ public class GameState {
 	
 	/****************************************Get Button*************************************/
 	public static void getButton() throws AWTException{
-		//
+		//Button positions need to dynamically change with Aspect Ratio and vary depending on number of seats
+		//hard coded for 6 seater Matthew's desktop
+		int[] x6 = {1210, 700, 375, 700, 1210, 1300 };
+		int[] y6 = {580, 580, 330, 215, 215, 330 };
+		int pos = -1;
+		
+		Robot robot = new Robot();
+		
+		//check all positions for button
+		for(int i = 0; i < x6.length ; i++){
+			if(robot.getPixelColor(x6[i], y6[i]).getRed() == 255){
+				pos = i;
+				System.out.println("Position " + pos);
+				break;
+			}
+		}
+		
+		if(pos == -1)
+			System.out.println("Button not found");
 	}
 	
-	/****************************************Wait*************************************/
+	/*******************************************Wait****************************************/
 	public static void wait(int x, int y) throws AWTException{
 		//Creates a loop that waits until the desired card shows up in position x, y
 		Robot robot = new Robot();
