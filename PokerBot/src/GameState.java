@@ -59,9 +59,7 @@ public class GameState {
 	    robot.mouseRelease(InputEvent.BUTTON1_MASK);
 	}
 	
-	/****************************************Get Seats**************************************/
-	
-	/****************************************Get Seats**************************************/
+	/****************************************active Players**************************************/
 	public static int activePlayers() throws AWTException, IOException{
 		//6 seater opponent card coordinates
 		int[] x6 ={285, 90, 290, 535, 745};
